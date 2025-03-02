@@ -33,16 +33,16 @@ public:
 	// valeur = 0.0; variance = CMESURE_EPS^2.0;	alpha = 95.45;
     CMesure();
 	// valeur = valeur;   variance = CMESURE_EPS^2.0;	alpha = 95.45;						   
-    CMesure(double valeur);
+    CMesure(double _valeur);
 	// valeur = v;   variance = epsilon * epsilon;		alpha = fabs(a);
-    CMesure(double valeur, double epsilon, double alpha);
+    CMesure(double _valeur, double _epsilon, double _alpha);
 
 #if defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64)
 	// pour passer en paramètre la chaine ( valeur +/- IT | alpha% )
 	CMesure(char* m);
 #endif				   
 
-	CMesure(double valeur, double it, char loi = 'N', double alpha = 95.45);
+	CMesure(double _valeur, double _it, char _loi = 'N', double _alpha = 95.45);
 	// Dans le cadre de mesures effectuées dans des conditions bien identifiées,
 	// il est possible d'estimer l'incertitude type directement à partir de
 	// l'intervalle de tolérance à l'aide des lois suivante
@@ -73,8 +73,8 @@ public:
 	double Variance(void);	// Variance = carré de l'incertitude type	
 	double IT(void);		// Intervalle de tolérance = Eps x K
 
-    double const K_alpha(double alpha);	// Coeff d'élargissement
-	double const K(void);	// Coeff d'élargissement
+    double K_alpha(double _alpha);	// Coeff d'élargissement
+	double K(void);	// Coeff d'élargissement
 
 
     
