@@ -75,6 +75,7 @@ public:
 
     double Fx(double _input, bool _inv);	// Fonction de répartition
 	double K(void);	// Coeff d'élargissement
+	double pValue(void);	// p-value de la VA
 
 
     
