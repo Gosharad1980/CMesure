@@ -107,7 +107,7 @@ CMesure::CMesure(double _valeur, double _it, char _loi, double _alpha)
 		case 'S' : this->variance = (_it * _it) / 1.96;	break;
 		case 'C' : this->variance = (_it * _it) / 3.0;	break;
 		case 'P' : 
-			this->variance = (_valeur * fabs(_it) / 100.0) / (this->K_alpha(_alpha)); 
+			this->variance = (_valeur * fabs(_it) / 100.0) / (this->Fx(_alpha, false)); 
 			this->variance = this->variance * this->variance;
 			break;
 		case 'N' : // c'est la loi par défaut dans tout bon certificat d'étalonnage qui se respecte
@@ -143,32 +143,48 @@ double CMesure::Eps     (void) { return sqrt(this->Variance());  }
 double CMesure::IT      (void) { return this->Eps() * this->K(); }
 
 // Coeff d'élargissement calculé en fct de alpha
-double CMesure::K_alpha(double _alpha)
+double CMesure::Fx(double _input, bool _inv)
 {
 	// Calcul par interpolation du coeff d'élargissement à l'aide
 	// des valeurs décrites dans la norme "NF ENV 13005"
-    double p[13] = { 99.95 , 99.73 , 99.30, 99.00 , 98.76 , 95.45 , 95.00 , 90.00 , 86.64 , 68.27 , 50.000 , 38.29 , 0.000 };
-    double k[13] = { 3.500 , 3.000 , 2.698, 2.576 , 2.500 , 2.000 , 1.960 , 1.645 , 1.500 , 1.000 , 0.6745 , 0.500 , 0.000 };
+	// double p[13] = { 99.95 , 99.73 , 99.30, 99.00 , 98.76 , 95.45 , 95.00 , 90.00 , 86.64 , 68.27 , 50.000 , 38.29 , 0.000 };
+	// double k[13] = { 3.500 , 3.000 , 2.698, 2.576 , 2.500 , 2.000 , 1.960 , 1.645 , 1.500 , 1.000 , 0.6745 , 0.500 , 0.000 };
 
-    double a, b;
+	int x,y;
+	double fx[2][13] = {{ 99.95 , 99.73 , 99.30, 99.00 , 98.76 , 95.45 , 95.00 , 90.00 , 86.64 , 68.27 , 50.000 , 38.29 , 0.000 }, //p
+						{ 3.500 , 3.000 , 2.698, 2.576 , 2.500 , 2.000 , 1.960 , 1.645 , 1.500 , 1.000 , 0.6745 , 0.500 , 0.000 }}; // k
+
+	if(_inv == false)
+	{
+		x = 0;
+		y = 1;
+	}
+	else
+	{
+		x = 1;
+		y = 0;
+	}
+
+	double a, b;
 	int i;
-    
-	if     (_alpha >= p[0]) return k[0];
-	else if(_alpha <= p[12]) return k[12];
+
+	if     (_input >= fx[x][0] ) return fx[y][0];
+	else if(_input <= fx[x][12]) return fx[y][12];
 	else
 	{
 		// Recherche du cadran dans lequel on se situe
-		for(i=1; i<13; i++) if(_alpha >= p[i]) break;
+		for(i=1; i<13; i++) if(_input >= fx[x][i]) break;
 
 		// Interpolation de la valeur du coefficient d'élargissement
-		a = (k[i] - k[i-1]) / (p[i] - p[i-1]);
-		b = k[i-1] - (a * p[i-1]);
+		a = (fx[y][i] - fx[y][i-1]) / (fx[x][i] - fx[x][i-1]);
+		b = fx[y][i-1] - (a * fx[x][i-1]);
 
-		return (a * _alpha + b);
+		return (a * _input + b);
 	}
 }
 
-double CMesure::K(void) { return this->K_alpha(this->Alpha()); }
+double CMesure::K(void)      { return this->Fx(this->Alpha(), false); }
+double CMesure::pValue(void) { return ( (100.0 - this->Fx(fabs(this->Val()) / this->Eps(), true) ) / 2.0 ); }
     
 ////////////////////////////////////////////////////////////////////////////////
 //////////////////////// surdéfinition des opérateurs //////////////////////////

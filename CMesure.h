@@ -73,7 +73,7 @@ public:
 	double Variance(void);	// Variance = carré de l'incertitude type	
 	double IT(void);		// Intervalle de tolérance = Eps x K
 
-    double K_alpha(double _alpha);	// Coeff d'élargissement
+    double Fx(double _input, bool _inv);	// Fonction de répartition
 	double K(void);	// Coeff d'élargissement
 
 
