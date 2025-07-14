@@ -1,5 +1,5 @@
 # CMesure
-Uncertaicies calculation C++ class
+Uncertainties calculation C++ class
 
 
 ## Variance propagation
@@ -21,7 +21,7 @@ Wherre K is the number of standard deviation to take in account regarding the "N
 ## Comparisons and ordering
 
 	-> Evaluate R = A - B
-	-> Check where is the extented uncertaicy regarding the result
+	-> Check where is the extented uncertaincy regarding the result
 
 
 			    -IT(A-B)      0      +IT(A-B)
