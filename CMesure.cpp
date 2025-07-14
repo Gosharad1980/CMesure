@@ -283,7 +283,7 @@ CMesure& CMesure::operator*=(const double&  V)
 
 CMesure  CMesure::operator/ (const CMesure& M) const
 {
-	// U²(R) = (  U(this)² * M²) + (this² * U(M)²)  ) * (1 / M²) 
+	// U²(R) = (  (U(this)² * M²) + (this² * U(M)²)  ) * (1 / M^4) 
 	// CAS DE LA DIVISION DE/PAR ZERO !!! (traite l'infinie comme une valeur)
 	//		R.valeur = +/-inf si dénominateur nul
 	//		eps = +inf si dénom est nul
