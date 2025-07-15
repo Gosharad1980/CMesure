@@ -42,20 +42,20 @@ Wherre K is the number of standard deviation to take in account regarding the "N
 | :------------: | :-------------: |
 | $$y = f(x)$$    | $$\sigma_y^2 = \left(\frac{\mathrm{d}f(x)}{\mathrm{d}x}\right)^2 \sigma_x^2$$ |
 | $$z = f(x,y)$$  | $$\sigma_z^2 = \left(\frac{\mathrm{d}f(x)}{\mathrm{d}x}\right)^2 \sigma_x^2 + \left(\frac{\mathrm{d}f(y)}{\mathrm{d}y}\right)^2 \sigma_y^2$$ |
-| $$y = \left\| x \right\|$$         | $$\sigma_x$$ |
-| $$y = \sin(x) $$    | $$\cos(x)^2  \sigma_x^2$$ |
-| $$y = \cos(x) $$    | $$\left(-\sin(x) \right)^2  \sigma_x^2$$ |
-| $$y = \tan(x) $$    | $$\left[1.0 + \tan^2(x) \right]^2  \sigma_x^2$$ |
-| $$y = \arccos(x) $$ | $$\frac{1}{1-x^2} . \sigma_x^2$$ |
-| $$y = \arcsin(x) $$ | $$\frac{1}{1-x^2} . \sigma_x^2$$ |
-| $$y = \arctan(x) $$ | $$\left(\frac{1}{1-x^2} \right)^2 . \sigma_x^2$$ |
-| $$y = cosh(x) $$    | $$sinh(x)^2  \sigma_x^2$$ |
-| $$y = sinh(x) $$    | $$cosh(x)^2  \sigma_x^2$$ |
-| $$y = tanh(x) $$    | $$\left(1.0 + tanh(x)^2 \right)^2  \sigma_x^2$$ |
-| $$y = \log(x) $$ | $$\left(\frac{1}{x} \right)^2  \sigma_x^2$$ |
-| $$y = \log_{10}(x) $$ | $$\left[\left(\frac{1}{log(10)} \right)\left(\frac{1}{x} \right)\right]^2  \sigma_x^2$$ |
-| $$y = \log_{2}(x) $$ | $$\left[\left(\frac{1}{log(2)} \right)\left(\frac{1}{x} \right)\right]^2  \sigma_x^2$$ |
-| $$y = e^x $$ | $$\left( e^x \right)^2  \sigma_x^2$$ |
-| $$y = \sqrt x $$ | $$\left( \frac{1}{4\left\| x \right\|} \right)  \sigma_x^2$$ |
-| $$y = x^y$$         | $$\left(y.x^{y-1}\right)^2 \sigma_x^2 + \left[(1+ln(x)).x^y \right]^2 \sigma_y^2$$ |
+| $$y = \left\| x \right\|$$         | $$\sigma_y^2=\sigma_x^2$$ |
+| $$y = \sin(x) $$    | $$\sigma_y^2 = \cos(x)^2  \sigma_x^2$$ |
+| $$y = \cos(x) $$    | $$\sigma_y^2 = \left(-\sin(x) \right)^2  \sigma_x^2$$ |
+| $$y = \tan(x) $$    | $$\sigma_y^2 = \left[1.0 + \tan^2(x) \right]^2  \sigma_x^2$$ |
+| $$y = \arccos(x) $$ | $$\sigma_y^2 = \frac{1}{1-x^2} . \sigma_x^2$$ |
+| $$y = \arcsin(x) $$ | $$\sigma_y^2 = \frac{1}{1-x^2} . \sigma_x^2$$ |
+| $$y = \arctan(x) $$ | $$\sigma_y^2 = \left(\frac{1}{1-x^2} \right)^2 . \sigma_x^2$$ |
+| $$y = cosh(x) $$    | $$\sigma_y^2 = sinh(x)^2  \sigma_x^2$$ |
+| $$y = sinh(x) $$    | $$\sigma_y^2 = cosh(x)^2  \sigma_x^2$$ |
+| $$y = tanh(x) $$    | $$\sigma_y^2 = \left(1.0 + tanh(x)^2 \right)^2  \sigma_x^2$$ |
+| $$y = \log(x) $$ | $$\sigma_y^2 = \left(\frac{1}{x} \right)^2  \sigma_x^2$$ |
+| $$y = \log_{10}(x) $$ | $$\sigma_y^2 = \left[\left(\frac{1}{log(10)} \right)\left(\frac{1}{x} \right)\right]^2  \sigma_x^2$$ |
+| $$y = \log_{2}(x) $$ | $$\sigma_y^2 = \left[\left(\frac{1}{log(2)} \right)\left(\frac{1}{x} \right)\right]^2  \sigma_x^2$$ |
+| $$y = e^x $$ | $$\sigma_y^2 = \left( e^x \right)^2  \sigma_x^2$$ |
+| $$y = \sqrt x $$ | $$\sigma_y^2 = \left( \frac{1}{4\left\| x \right\|} \right)  \sigma_x^2$$ |
+| $$y = x^y$$         | $$\sigma_z^2 = \left(y.x^{y-1}\right)^2 \sigma_x^2 + \left[(1+ln(x)).x^y \right]^2 \sigma_y^2$$ |
 
