@@ -33,7 +33,7 @@ CMesure fabs (CMesure M)
 	// si M.Val() <  0 => fabs(M.Val()) = -1.0 * M.Val() et df = -1
 	// si M.Val() >= 0 => fabs(M.Val()) =  1.0 * M.Val() et df =  1
 	// dans tous les cas, lorsque df sera élevé au carré, df² = 1
-	// => U²(x) = sqrt(M.Eps() * M.Eps()) = fabs(M. Eps())
+	// => U²(x) = sqrt(M.Eps() * M.Eps()) = fabs(M.Eps())
 	
 	return CMesure(
 		(double)fabs(M.Val()), 
