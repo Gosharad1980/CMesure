@@ -59,3 +59,30 @@ Wherre K is the number of standard deviation to take in account regarding the "N
 | $$y = \sqrt x $$ | $$\sigma_y^2 = \left( \frac{1}{4\left\| x \right\|} \right)  \sigma_x^2$$ |
 | $$y = x^y$$         | $$\sigma_z^2 = \left(y.x^{y-1}\right)^2 \sigma_x^2 + \left[(1+ln(x)).x^y \right]^2 \sigma_y^2$$ |
 
+## Code example
+
+```cpp - C++
+#include <CMesure.h>
+
+int main(void)
+{
+
+    CMesure fc(250000.0);	// 250 kHz
+    CMesure Ct(0.000000001, 10.0,'P'); // 1µF +/- 10%
+
+    CMesure Rt = 1.0 / (fc * Ct);
+	
+    cout << "fc =" << fc << endl;
+	cout << "Ct =" << Ct << endl;
+	cout << "Rt =" << Rt << endl;
+
+	return 0;
+}
+```
+
+```
+fc =( 250000 +/- 2.98023e-08 | 95.45% )
+Ct =( 1e-09 +/- 1e-10 | 95.45% )
+Rt =( 4000 +/- 400 | 95.45% )
+```
+
