@@ -68,7 +68,7 @@ int main(void)
 {
 
     CMesure fc(250000.0);	// 250 kHz
-    CMesure Ct(0.000000001, 10.0,'P'); // 1µF +/- 10%
+    CMesure Ct(0.000000001, 10.0,'P'); // 1nF +/- 10%
 
     CMesure Rt = 1.0 / (fc * Ct);
 	
